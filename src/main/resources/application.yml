@@ -1,0 +1,29 @@
+server:
+  port: 8082
+  error:
+    include-stacktrace: never
+spring:
+  datasource:
+    username: admin
+    password: admin
+    url: jdbc:postgresql://localhost:5432/user
+  jpa:
+    show-sql: true
+    spring.jpa.database-platform: org.postgresql.Driver
+    hibernate:
+      ddl-auto: update
+  session:
+    store-type: jdbc
+
+props:
+  auth:
+    provider-uri: "http://localhost:8082"
+    jks:
+      keypass: 123456
+      storepass: 123456
+      alias: authserver
+      path: keystore/authserver.jks
+
+logging:
+  level:
+    web: DEBUG
